@@ -19,13 +19,13 @@ const ViewById = () => {
 
     const request = await Api.fetchDelete(id);
     const response = await request.json();
-    setNotes(response);
     alert(response.message);
+    setNotes(response);
   };
 
   useEffect(() => {
     getNoteById();
-  }, []);
+  }, [notes]);
 
   let checkmark = "";
   if (notes.status === "To do") {
