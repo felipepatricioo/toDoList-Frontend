@@ -4,7 +4,7 @@ import "./style.css";
 import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -26,13 +26,12 @@ const Register = () => {
     const request = await Api.fetchPost(notes);
     const response = await request.json();
 
-    if (response.error){
+    if (response.error) {
       alert(response.message);
     } else {
       alert(response.message);
       navigate("/");
     }
-
   };
 
   return (
@@ -51,7 +50,7 @@ const Register = () => {
               <label for="TextInput" className="form-label">
                 Note Title
               </label>
-              <span class="required">*</span>
+              <span className="required">*</span>
               <input
                 type="text"
                 id="title"
@@ -65,7 +64,7 @@ const Register = () => {
               <label for="TextInput" className="form-label">
                 Note Content
               </label>
-              <span class="required">*</span>
+              <span className="required">*</span>
               <textarea
                 type="text"
                 id="description"
@@ -76,32 +75,86 @@ const Register = () => {
               />
             </div>
             <div className="mb-3 mx-3 my-3">
-              <label for="Select" className="form-label">
-                Priority
+            <label  className="form-label">
+                Priority (not required):
               </label>
-              <select className="form-select" id="priority" name="priority">
-                <option disabled selected>
-                  Priority
-                </option>
-                <option>Low</option>
-                <option>Medium</option>
-                <option>High</option>
-                <option>None</option>
-              </select>
+              <div className="form-check">
+                <input
+                  type="radio"
+                  className="form-check-input"
+                  name="priority"
+                  value="High"
+                  id="flexRadioDefault1"
+                />
+                <label for="Radio" className="form-label">
+                  High
+                </label>
+              </div>
+              <div className="form-check">
+                <input
+                  type="radio"
+                  className="form-check-input"
+                  name="priority"
+                  value="Medium"
+                  id="flexRadioDefault1"
+                />
+                <label for="Radio" className="form-label">
+                  Medium
+                </label>
+              </div>
+              <div className="form-check">
+                <input
+                  type="radio"
+                  className="form-check-input"
+                  name="priority"
+                  value="Low"
+                  id="flexRadioDefault1"
+                />
+                <label for="Radio" className="form-label">
+                  Low
+                </label>
+              </div>
             </div>
-            <div class="mb-3 mx-3 my-3">
-              <label for="Select" className="form-label">
-                Status
+            <div className="mb-3 mx-3 my-3">
+            <label  className="form-label">
+                Status (not required):
               </label>
-              <select className="form-select" id="status" name="status">
-                <option disabled selected>
-                  Status
-                </option>
-                <option>Not Done</option>
-                <option>Doing</option>
-                <option>Done</option>
-                <option>None</option>
-              </select>
+              <div class="form-check">
+                <input
+                  type="radio"
+                  className="form-check-input"
+                  name="status"
+                  value="To do"
+                  id="flexRadioDefault1"
+                />
+                <label for="Radio" className="form-label">
+                  To do
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  type="radio"
+                  className="form-check-input"
+                  name="status"
+                  value="Doing"
+                  id="flexRadioDefault1"
+                />
+                <label for="Radio" className="form-label">
+                  Doing
+                </label>
+              </div>
+              <div className="form-check">
+                <input
+                  type="radio"
+                  className="form-check-input"
+                  name="status"
+                  value="Done"
+                  id="flexRadioDefault1"
+                />
+                <label for="Radio" className="form-label">
+                  Done
+                </label>
+              </div>
             </div>
             <div className="mb-3 mx-3 my-3">
               <label for="NumberInput" className="form-label">
@@ -113,6 +166,7 @@ const Register = () => {
                 className="form-control"
                 placeholder="Deadline (days)"
                 name="deadline"
+                min="1"
               />
             </div>
             <div className=" d-flex flex-row-reverse  align-items-end mx-3 my-1">
@@ -121,7 +175,7 @@ const Register = () => {
                   Cancel
                 </button>
               </Link>
-              <button type="submit" class="btn btn-dark">
+              <button type="submit" className="btn btn-dark">
                 Submit
               </button>
             </div>

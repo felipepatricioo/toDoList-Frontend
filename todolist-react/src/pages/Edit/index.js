@@ -45,38 +45,38 @@ const Edit = () => {
     }
 
     return (
-    <div className="container">
+      <div className="container">
       <div className="card mt-4">
         <div className="card-title">
           <div className="row">
             <div className="col">
-              <h2 className="mx-3 my-3">Edit Note:</h2>
+              <h2 className="mx-3 my-3">Register a new Note:</h2>
             </div>
           </div>
         </div>
         <form onSubmit={handleSubmit}>
           <fieldset>
             <div className="mb-3 mx-3 my-3">
-              <label htmlFor="TextInput" className="form-label" >
+              <label for="TextInput" className="form-label">
                 Note Title
               </label>
-              <span className="required">*</span>
+              <span class="required">*</span>
               <input
                 type="text"
                 id="title"
                 className="form-control"
                 placeholder="Note Title"
                 name="title"
+                value={note.description}
                 onChange={handleFieldsChange}
-                value={note.title}
                 required
               />
             </div>
             <div className="mb-3 mx-3 my-3">
-              <label htmlFor="TextInput" className="form-label">
+              <label for="TextInput" className="form-label">
                 Note Content
               </label>
-              <span className="required">*</span>
+              <span class="required">*</span>
               <textarea
                 type="text"
                 id="description"
@@ -89,35 +89,95 @@ const Edit = () => {
               />
             </div>
             <div className="mb-3 mx-3 my-3">
-              <label htmlFor="Select" className="form-label">
-                Priority
+            <label  className="form-label">
+                Priority (not required):
               </label>
-              <select className="form-select" id="priority" name="priority" value={note.priority} onChange={handleFieldsChange}>
-                <option disabled defaultValue>
-                  Priority
-                </option>
-                <option>Low</option>
-                <option>Medium</option>
-                <option>High</option>
-                <option>None</option>
-              </select>
+              <div class="form-check">
+                <input
+                  type="radio"
+                  className="form-check-input"
+                  name="priority"
+                  value="High"
+                  id="flexRadioDefault1"
+                  onChange={handleFieldsChange}
+                />
+                <label for="Radio" className="form-label">
+                  High
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  type="radio"
+                  className="form-check-input"
+                  name="priority"
+                  value="Medium"
+                  id="flexRadioDefault1"
+                  onChange={handleFieldsChange}
+                />
+                <label for="Radio" className="form-label">
+                  Medium
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  type="radio"
+                  className="form-check-input"
+                  name="priority"
+                  value="Low"
+                  id="flexRadioDefault1"
+                  onChange={handleFieldsChange}
+                />
+                <label for="Radio" className="form-label">
+                  Low
+                </label>
+              </div>
             </div>
             <div className="mb-3 mx-3 my-3">
-              <label htmlFor="Select" className="form-label">
-                Status
+            <label  className="form-label">
+                Status (not required):
               </label>
-              <select className="form-select" id="status" name="status" value={note.status} onChange={handleFieldsChange}>
-                <option disabled defaultValue>
-                  Status
-                </option>
-                <option>Not Done</option>
-                <option>Doing</option>
-                <option>Done</option>
-                <option>None</option>
-              </select>
+              <div class="form-check">
+                <input
+                  type="radio"
+                  className="form-check-input"
+                  name="status"
+                  value="To do"
+                  id="flexRadioDefault1"
+                  onChange={handleFieldsChange}
+                />
+                <label for="Radio" className="form-label">
+                  To do
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  type="radio"
+                  className="form-check-input"
+                  name="status"
+                  value="Doing"
+                  id="flexRadioDefault1"
+                  onChange={handleFieldsChange}
+                />
+                <label for="Radio" className="form-label">
+                  Doing
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  type="radio"
+                  className="form-check-input"
+                  name="status"
+                  value="Done"
+                  id="flexRadioDefault1"
+                  onChange={handleFieldsChange}
+                />
+                <label for="Radio" className="form-label">
+                  Done
+                </label>
+              </div>
             </div>
             <div className="mb-3 mx-3 my-3">
-              <label htmlFor="NumberInput" className="form-label">
+              <label for="NumberInput" className="form-label">
                 Deadline (days)
               </label>
               <input
@@ -126,6 +186,7 @@ const Edit = () => {
                 className="form-control"
                 placeholder="Deadline (days)"
                 name="deadline"
+                min="1"
                 value={note.deadline}
                 onChange={handleFieldsChange}
               />
