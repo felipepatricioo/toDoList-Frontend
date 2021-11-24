@@ -1,51 +1,49 @@
-import React,{ useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import Api from "../../api/api";
 
 const Edit = () => {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
+  const { id } = useParams();
 
-    const { id } = useParams()
+  const [note, setNote] = useState({
+    title: "",
+    description: "",
+    priority: "",
+    status: "",
+    deadline: "",
+  });
 
-    const [note, setNote] = useState({
-        title: '',
-        description: '',
-        priority: '',
-        status: '',
-        deadline: ''
-    })
+  const getNoteById = async () => {
+    const request = await Api.fetchGetById(id);
+    setNote(await request.json());
+  };
 
-    const getNoteById = async () => {
-        const request = await Api.fetchGetById(id)
-        setNote(await request.json())
-    }
+  useEffect(() => {
+    getNoteById();
+  }, []);
 
-    useEffect(() => {
-        getNoteById()
-    }, []);
+  const handleFieldsChange = (event) => {
+    const noteEdit = { ...note };
 
+    noteEdit[event.target.name] = event.target.value;
 
-    const handleFieldsChange = (event) => {
-        const noteEdit = { ...note };
+    setNote(noteEdit);
+  };
 
-        noteEdit[event.target.name] = event.target.value;
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-        setNote(noteEdit);
-    }
+    const request = await Api.fetchPut(note, id);
+    const response = await request.json();
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        
-        const request = await Api.fetchPut(note, id);
-        const response = await request.json();
+    alert(response.message);
+    navigate(`/${id}`);
+  };
 
-        alert(response.message);
-        navigate(`/${id}`);
-    }
-
-    return (
-      <div className="container">
+  return (
+    <div className="container">
       <div className="card mt-4">
         <div className="card-title">
           <div className="row">
@@ -89,9 +87,7 @@ const Edit = () => {
               />
             </div>
             <div className="mb-3 mx-3 my-3">
-            <label  className="form-label">
-                Priority (not required):
-              </label>
+              <label className="form-label">Priority (not required):</label>
               <div class="form-check">
                 <input
                   type="radio"
@@ -133,9 +129,7 @@ const Edit = () => {
               </div>
             </div>
             <div className="mb-3 mx-3 my-3">
-            <label  className="form-label">
-                Status (not required):
-              </label>
+              <label className="form-label">Status (not required):</label>
               <div class="form-check">
                 <input
                   type="radio"
@@ -205,7 +199,7 @@ const Edit = () => {
         </form>
       </div>
     </div>
-    )
-}
+  );
+};
 
-export default Edit
+export default Edit;

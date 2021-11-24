@@ -1,7 +1,7 @@
 const Api = {
   apiUrl: "https://notepad-backendblue.herokuapp.com",
 
-  fetchGetAll:  () => fetch(Api.apiUrl),
+  fetchGetAll: () => fetch(Api.apiUrl),
 
   fetchGetById: (id) => fetch(`${Api.apiUrl}/${id}`),
 
@@ -17,19 +17,19 @@ const Api = {
 
   fetchPut: (data, id) => {
     return fetch(`${Api.apiUrl}/edit/${id}`, {
-        method: "PUT",
-        body: JSON.stringify(data),
-        headers: new Headers({
-            "Content-Type": "application/json",
-          }),
-    })
+      method: "PUT",
+      body: JSON.stringify(data),
+      headers: new Headers({
+        "Content-Type": "application/json",
+      }),
+    });
   },
 
   fetchDelete: (id) => {
     return fetch(`${Api.apiUrl}/delete/${id}`, {
-      method: "DELETE"
-    })
-  }
+      method: "DELETE",
+    });
+  },
 };
 
 export default Api;

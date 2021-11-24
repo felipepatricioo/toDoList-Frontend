@@ -46,13 +46,20 @@ const ViewById = () => {
       <div className="card">
         <div className="card-body">
           <h5 className="card-title"> Note Title: {notes.title} </h5>
-          <h5 className="card-text"> {notes.description}</h5>
+          <h5 className="card-text">Note Content: {notes.description}</h5>
           <div>
-            <img src={checkmark} alt={notes.status} className="icon" />
-            <h5 className="card-text"> {notes.status}</h5>
+            <h5 className="card-text">
+              Status: {notes.status}
+              <img src={checkmark} alt={notes.status} className="icon" />
+            </h5>
+            <h5 className="card-text">Priority: {notes.priotity}</h5>
+            <div>
+              <h5>
+                Deadline(days):
+                <h5 className="badge bg-primary">{notes.deadline}</h5>
+              </h5>
+            </div>
           </div>
-          <h5 className="badge bg-primary">{notes.priotity}</h5>
-          <h5 className="badge bg-primary">{notes.deadline}</h5>
         </div>
         <div className=" d-flex flex-row-reverse  align-items-end mx-3 my-1">
           <Link

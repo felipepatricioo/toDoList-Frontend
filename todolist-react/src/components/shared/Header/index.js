@@ -16,7 +16,7 @@ const Header = () => {
           />
           Online NotePad
         </Link>
-        <div> 
+        <div>
           <Link className="navbar-brand" to="/">
             Home
           </Link>

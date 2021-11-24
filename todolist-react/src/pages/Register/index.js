@@ -75,9 +75,7 @@ const Register = () => {
               />
             </div>
             <div className="mb-3 mx-3 my-3">
-            <label  className="form-label">
-                Priority (not required):
-              </label>
+              <label className="form-label">Priority (not required):</label>
               <div className="form-check">
                 <input
                   type="radio"
@@ -116,9 +114,7 @@ const Register = () => {
               </div>
             </div>
             <div className="mb-3 mx-3 my-3">
-            <label  className="form-label">
-                Status (not required):
-              </label>
+              <label className="form-label">Status (not required):</label>
               <div class="form-check">
                 <input
                   type="radio"
