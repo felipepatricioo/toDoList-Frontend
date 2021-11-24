@@ -15,7 +15,7 @@ const Window = (props) => {
         type="button"
         className="btn btn-dark mx-3 my-1"
       >
-        Go to Note's page:{" "}
+        Go to Note's page:
       </Link>
     </div>
   );

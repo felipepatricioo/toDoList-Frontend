@@ -52,7 +52,7 @@ const ViewById = () => {
               Status: {notes.status}
               <img src={checkmark} alt={notes.status} className="icon" />
             </h5>
-            <h5 className="card-text">Priority: {notes.priotity}</h5>
+            <h5 className="card-text">Priority: {notes.priority}</h5>
             <div>
               <h5>
                 Deadline(days):
